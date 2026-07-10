@@ -21,7 +21,7 @@ include include/config/auto.conf
 include scripts/Kbuild.include
 include $(src)/Makefile
 
-dtbinst-files	:= $(dtb-y)
+dtbinst-files	:= $(dtb-y) $(dtbo-y)
 dtbinst-dirs	:= $(dts-dirs)
 
 # Helper targets for Installing DTBs into the boot directory
@@ -30,7 +30,7 @@ quiet_cmd_dtb_install =	INSTALL $<
 
 install-dir = $(patsubst $(dtbinst_root)%,$(INSTALL_DTBS_PATH)%,$(obj))
 
-$(dtbinst-files): %.dtb: $(obj)/%.dtb
+$(dtbinst-files): %: $(obj)/%
 	$(call cmd,dtb_install,$(install-dir))
 
 $(dtbinst-dirs):
