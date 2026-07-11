@@ -20,7 +20,7 @@ $(eval $(call sec_dtbo_build, \
 		$(SEC_GTA4XLVE_EUR_DTBO),$(CONFIG_SEC_GTA4XLVE_EUR_OPEN),$(SEC_ATOLL_BASE_DTB)))
 
 endif
-
+dtb-y += gta4xlve.dtb
 ifeq ($(CONFIG_ARM64),y)
 always          := $(dtb-y)
 subdir-y        := $(dts-dirs)
